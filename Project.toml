@@ -1,0 +1,4 @@
+name = "SimpleContinuation"
+uuid = "c09fe2f7-ca7c-447a-a3fd-03a6374dee7e"
+authors = ["rusandris <rusandris@gmail.com>"]
+version = "0.1.0"
