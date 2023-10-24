@@ -6,6 +6,5 @@ struct Branch
 	Δp::Float64
 	p_values
 end
-Branch(values,stability,p_min,p_max,Δp) = Branch(values,stability,p_min,p_max,Δp,p_min:Δp:p_max) 
 
 
