@@ -23,7 +23,7 @@ function continuation(f,x0::Real;p_min::Real,p_max::Real,Δp::Float64=1e-2,rootf
 		push!(ps,p)
 	end
 	
-	return Branch(xs,get_stability_symbol(Int(sign(df_x))),p_min,p_max,Δp,ps)
+	return Branch(xs,get_stability_symbol(Int(init_stability)),p_min,p_max,Δp,ps)
 end
 
 function continuation(f,x::Real,p::Real;Δp::Float64=1e-2,ϵ=1e-4)
