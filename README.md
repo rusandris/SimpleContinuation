@@ -41,4 +41,19 @@ Ezt visszaírva az $x^{*}(p)$-re kapott közelítésbe:
 Ezt az összefüggést használhatjuk, hogy egy lépéssel folytassuk a görbét. A csomag `continuation` függvénye numerikusan közelíti az $f_x,f_p$ deriváltakat, így ezeket nem szükséges megadni. 
 
 ## Használat
+`continuation(f,x0;p_min,p_max,kwargs...) -> br::Branch`
 
+A `continuation` függvény argumentumai:
+* `f`: a dinamikai rendszer "jobboldala", `f(x,p)` alakú
+* `x0`: a kezdeti becslés. Nem kell egzakt fixpontmegoldásnak lennie, a függvény gyökkereső algoritmussal kerül közelebb a pontos értékhez.
+Kulcsszó-argumentumok:
+* `p_min`: paraméter minimum értéke
+* `p_max`: paraméter maximum értéke
+* `Δp`: paraméter lépésköz
+* `rootfinding_function`: gyökkereső (opciók: `quasinewton_rootfinding,bisection_rootfinding`)
+* `rootfinding_options`: további gyökkereső opciók
+* `ϵ`: paraméter deriváltak közelítéséhez
+  
+## Telepítés
+`] add https://github.com/rusandris/SimpleContinuation.jl.git`
+  
