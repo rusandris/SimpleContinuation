@@ -13,7 +13,7 @@ function continuation(f,x0::Real;p_min::Real,p_max::Real,Δp::Float64=1e-2,rootf
 	
 	#start continuation
 	while p < p_max
-		x,df_x = continuation(f,x,p;Δp=Δp)
+		x,df_x = continuation(f,x,p;Δp=Δp,rootfinding_function=rootfinding_function,rootfinding_options=rootfinding_options,ϵ=ϵ)
 		p += Δp
 		if sign(df_x)* init_stability < 0
 			@warn "Stability change around p = $(ps[end]) !"
@@ -26,16 +26,21 @@ function continuation(f,x0::Real;p_min::Real,p_max::Real,Δp::Float64=1e-2,rootf
 	return Branch(xs,get_stability_symbol(Int(init_stability)),p_min,p_max,Δp,ps)
 end
 
-function continuation(f,x::Real,p::Real;Δp::Float64=1e-2,ϵ=1e-4)
+function continuation(f,x::Real,p::Real;Δp::Float64=1e-2,rootfinding_function=quasinewton_rootfinding,rootfinding_options=(),ϵ=1e-4)
 	
-	#try to guess x for the p+Δp
+	
 	#approximation of partial derivatives
 	df_p = (f(x,p+Δp) - f(x,p))/Δp
 	df_x = df(f,x,p,ϵ)
 	
-	#return approximate next value
-
-	return 	x - df_p/df_x * Δp, df_x
+	#try to guess x for the p+Δp
+	x_approx = x - df_p/df_x * Δp
+	
+	#iterate until convergence
+	x = rootfinding_function(f,x_approx,p;rootfinding_options...)
+	df_x = df(f,x,p,ϵ)
+	
+	return x,df_x
 
 end
 
