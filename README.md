@@ -56,4 +56,7 @@ Kulcsszó-argumentumok:
   
 ## Telepítés
 `] add https://github.com/rusandris/SimpleContinuation.jl.git`
-  
+
+## Példák
+Példák notebook és html formátumban [itt](/examples) . 
+ 
