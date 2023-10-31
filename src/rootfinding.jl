@@ -13,7 +13,7 @@ function quasinewton_rootfinding(f,x0, p; tol=1e-4,maxiter=1e4,ϵ=1e-4)
 		iter += 1
 	end
 			
-	error("Quasi-Newton method did not converge within the specified number of iterations!")
+	error("Quasi-Newton method did not converge within the specified number of iterations for p = $(p)!")
 	
 end
 
@@ -37,6 +37,6 @@ function bisection_rootfinding(f,x0,p;Δ = 1.0, a = x0 - Δ, b = x + Δ, tol=1e-
         end
     end
 
-    error("Bisection method did not converge within the specified number of iterations.")
+    error("Bisection method did not converge within the specified number of iterations p = $(p)!")
 end
 
