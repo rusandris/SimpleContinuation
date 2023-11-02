@@ -18,9 +18,9 @@ a $(x^{\*}(p_0),p_0)$ megoldás felhasználható a fixpont helyzetének becslés
 Numerikusan szeretnénk közelíteni a $x^{\*}(p)$ görbét egy adott $p \in [p_{min},p_{max}]$ intevallumon. 
 
 Itt explicit görbeként kezeljük, ami csak bizonyos esetekben lehetséges (a módszer nem érvényes, ha a görbe "visszafordul").
-A fixpont helyzetét megközelíthetjük a $p = p_0 + \Delta p$ paraméterértékre ($|\Delta p| << 1$) ha sorbafejtünk első rendig,
+A fixpont helyzetét megközelíthetjük a $p_1 = p_0 + \Delta p$ paraméterértékre ($|\Delta p| << 1$) ha sorbafejtünk első rendig,
 ```math
-x^{*}(p) \approx x_0^{*}(p_0) + \frac{d x^{*}}{dp} \Delta p 
+x^{*}(p_1) \approx x_0^{*}(p_0) + \frac{d x^{*}}{dp} \Delta p 
 ```
 Felhasználjuk a kezdeti megoldást:
 ```math
@@ -36,9 +36,9 @@ vagy rövidebben: $f_x dx + f_p dp = 0$, ahonnan
 ```
 Ezt visszaírva az $x^{*}(p)$-re kapott közelítésbe:
 ```math
- x^{*}(p) \approx x_0^{*}(p_0) - \left[ \frac{f_p}{f_x}  \right]_{x^{*}_0,p_0} \cdot \Delta p 
+ x^{*}(p_1) \approx x_0^{*}(p_0) - \left[ \frac{f_p}{f_x}  \right]_{x^{*}_0,p_0} \cdot \Delta p 
 ```
-Ezt az összefüggést használhatjuk, hogy egy lépéssel folytassuk a görbét. A csomag `continuation` függvénye numerikusan közelíti az $f_x,f_p$ deriváltakat, így ezeket nem szükséges megadni. 
+Ezt az értéket használhatjuk valamilyen gyökkereső algoritmus kezdőbecsléseként. A csomag `continuation` függvénye numerikusan közelíti az $f_x,f_p$ deriváltakat, így ezeket nem szükséges megadni. 
 
 ## Használat
 `continuation(f,x0;p_min,p_max,kwargs...) -> br::Branch`
@@ -56,6 +56,9 @@ Kulcsszó-argumentumok:
   
 ## Telepítés
 `] add https://github.com/rusandris/SimpleContinuation.jl.git`
+
+Pluto:
+`using Pkg; Pkg.add(url="https://github.com/rusandris/SimpleContinuation.jl.git")`
 
 ## Példák
 Példák notebook és html formátumban [itt](/examples) . 
