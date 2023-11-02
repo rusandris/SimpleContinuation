@@ -88,7 +88,7 @@ Ez nem más, mint egy **nyeregpont bifurkáció**!
 # ╠═d7679c19-82c3-4351-b728-6423cf6bdeea
 # ╠═5f890b56-287c-4f9d-bdae-2080e5d44d5b
 # ╠═4c5107f2-b501-43cc-8ed9-acce0adcc842
-# ╠═025d1cff-2ce6-4119-b028-cd21eb61e575
+# ╟─025d1cff-2ce6-4119-b028-cd21eb61e575
 # ╠═3325f49b-5fed-4e59-b1ef-b1d4f8b8b968
 # ╠═a8158d83-938d-4c25-82ce-b06870cece77
 # ╟─832819d5-0b68-4fb6-a9e7-9e47db4b12d3

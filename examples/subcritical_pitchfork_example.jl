@@ -58,7 +58,7 @@ end
 
 # ╔═╡ be4eddd9-3e03-44ab-8220-41bc7113fc03
 md"""
-A diagram 3 fixpont evolúcióját foglalja össze, ahogy az r paramétert változtatjuk.
+A bifurkációs diagram 3 fixpont evolúcióját foglalja össze, ahogy az r paramétert változtatjuk.
 """
 
 # ╔═╡ bae98fe2-4021-45fd-a9d5-24ff60824e85
@@ -69,7 +69,7 @@ Számítsuk ki először a pozitív fixponthoz tartozó ágat a `continuation` f
 # ╔═╡ 918d3bde-e2bf-46b2-be67-300e342102e5
 begin
 	x01 = 1.0 #kezdeti becslés
-	br1 = continuation(f,x01;p_min=-1,p_max=-0.001,Δp = 1e-4)
+	br1 = continuation(f,x01;p_min=-1,p_max=0.1,Δp = 1e-4)
 end
 
 # ╔═╡ 17fc4cbc-a0ea-4f39-88ae-e540c6759bbb
@@ -115,14 +115,14 @@ Mivel az origó $r>0$ értékekre is létezik, és stabilitást vált az $r=0$-b
 begin
 	#origó
 	x0 = 0.0
-	br0 = continuation(f,x0;p_min=-1,p_max=1.0,Δp = 1e-4)
+	br0 = continuation(f,x0;p_min=-1.0,p_max=1.0,Δp = 1e-4)
 end
 
 # ╔═╡ 883e8219-96b8-4724-9b88-e05e596e0901
 begin
 	#origó
 	br01 = continuation(f,x0;p_min=-1,p_max=-0.001,Δp = 1e-4)
-	br02 = continuation(f,x0;p_min=0.0,p_max=1.0,Δp = 1e-4)
+	br02 = continuation(f,x0;p_min=0.0,p_max=1.0,Δp = -1e-4)
 end
 
 # ╔═╡ 4174a390-38c0-46a4-ba0a-d4c71fcc4446
