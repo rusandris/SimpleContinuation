@@ -57,13 +57,14 @@ A korrektor kétfajta lehet:
 ## Használat
 `continuation(f,x0;p_min,p_max,kwargs...) -> br::Branch`
 
-Visszatéríti a `Branch`-et `p_min` és `p_max` közt `Δp` paraméterbeli lépésközzel.
+Visszatérít egy kezdeti `x0` becsléshez tartozó `Branch`-et `p_min` és `p_max` paraméterek közt `Δp` lépésközzel.
 Az ágon való haladás irányát a `Δp` előjele dönti el (lehet negatív vagy pozitív is).
 
 
 A `continuation` függvény argumentumai:
 * `f`: a dinamikai rendszer "jobboldala", `f(x,p)` alakú
 * `x0`: a kezdeti becslés. Nem kell egzakt fixpontmegoldásnak lennie, a függvény gyökkereső algoritmussal kerül közelebb a pontos értékhez.
+  
 Kulcsszó-argumentumok:
 * `p_min`: paraméter minimum értéke
 * `p_max`: paraméter maximum értéke
