@@ -12,18 +12,18 @@ A cél, hogy automatizáljuk a fixpontok bifurkáció-elemzését. Ha ismerjük 
 ```math
 f(x^{*}(p_0),p_0) = 0
 ```
-a $(x^{\*}(p_0),p_0)$ megoldás felhasználható a fixpont helyzetének becslésére a $p_0 + \Delta p$ értékre. Gyakorlatilag "folytatni" szeretnénk a meglévő megoldást, vagyis kiszámítani egy teljes megoldás-görbét (ág,branch). Ezeknek a módszereknek a gyűjtőneve a numerikus kontinuáció (**numerical continuation**).
+a $(x^{\*}(p_0),p_0)$ megoldás felhasználható a fixpont helyzetének becslésére a $p_0 + \Delta p$ értékre. Gyakorlatilag "folytatni" szeretnénk a meglévő megoldást, vagyis kiszámítani egy teljes megoldás-görbét (ág,branch). Ezeknek a módszereknek a gyűjtőneve angolul **numerical continuation**.
 
-Két lépéses prediktor-korrektor algoritmus:
+A módszer a prediktor-korrektor elven alapul:
 * prediktor: új kezdeti becslést javasol a fixpont értékére $p_0 + \Delta p$ esetén
 * korrektor: korrigálja a becslést
 
 Itt a bifurkációs ágat explicit görbeként kezeljük, ami csak bizonyos esetekben lehetséges (a módszer nem érvényes, ha a görbe "visszafordul").
 
 
-## Egyszerű iteratív módszer [(Natural parameter continuation)](https://en.wikipedia.org/wiki/Numerical_continuation#Natural_parameter_continuation)
+## Egyszerű iteratív módszer 
 
-Numerikusan, [iteratív eljárással](https://en.wikipedia.org/wiki/Numerical_continuation#Natural_parameter_continuation) szeretnénk közelíteni a $x^{\*}(p)$ görbét egy adott $p \in [p_{min},p_{max}]$ intevallumon. 
+Numerikusan szeretnénk közelíteni a $x^{\*}(p)$ görbét egy adott $p \in [p_{min},p_{max}]$ intevallumon. 
 
 
 #### Prediktor
